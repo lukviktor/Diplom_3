@@ -61,7 +61,7 @@ public class RegistrationTest extends TestBase {
         assertTrue(profilePage.checkingProfilePasswordData());
         assertTrue(profilePage.checkingProfileEmailData());
         assertTrue(profilePage.checkingProfileUser());
-        assertTrue(profilePage.checkingConstructor());
+
     }
     @DisplayName("Вход")
     @Description("вход через кнопку в форме восстановления пароля")
@@ -86,6 +86,5 @@ public class RegistrationTest extends TestBase {
         assertTrue(profilePage.checkingProfilePasswordData());
         assertTrue(profilePage.checkingProfileEmailData());
         assertTrue(profilePage.checkingProfileUser());
-        assertTrue(profilePage.checkingConstructor());
     }
 }

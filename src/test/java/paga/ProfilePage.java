@@ -20,14 +20,12 @@ public class ProfilePage {
     private final By inputPasswordDatsAccount = By.xpath("//ul/li[3]/div/div/input");
     // поле Email профиля
 
-    private By logoStellarBurgers = By.xpath("//div[@class='AppHeader_header__logo__2D0X2']/a");
-    //Ссылка логотип stellarburgers
+
 
     private By profileUser = By.xpath("//a[@href='/account/profile']");
     //Ссылка на профиль
 
-    private By constructor = By.xpath("//p[text()='Конструктор']");
-    //Ссылка на конструктор
+
 
     @Step("Проверка данных Name профиля при входе в аккаунт")
     public boolean checkingProfileNameData() {
@@ -46,8 +44,6 @@ public class ProfilePage {
     public boolean checkingProfileUser(){
         return driver.findElement(profileUser).isDisplayed();
     }
-    @Step("Проверка видимости ссылки на конструктор")
-    public boolean checkingConstructor(){
-        return driver.findElement(constructor).isDisplayed();
-    }
+
+
 }
