@@ -10,8 +10,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class RegistrationTest extends TestBase {
-
-
     @DisplayName("Регистрация")
     @Description("Успешную регистрацию")
     @Test
@@ -63,6 +61,7 @@ public class RegistrationTest extends TestBase {
         assertTrue(profilePage.checkingProfileUser());
 
     }
+
     @DisplayName("Вход")
     @Description("вход через кнопку в форме восстановления пароля")
     @Test

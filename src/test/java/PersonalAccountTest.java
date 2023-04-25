@@ -4,7 +4,9 @@ import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
-import paga.*;
+import paga.LoginPage;
+import paga.MainPage;
+import paga.ProfilePage;
 
 import static constant.UserData.*;
 import static org.junit.Assert.assertTrue;
@@ -81,7 +83,7 @@ public class PersonalAccountTest extends TestBase {
     @DisplayName("Выход из аккаунта")
     @Description("Проверь выход по кнопке «Выйти» в личном кабинете.")
     @Test
-    public void LogOutAccount(){
+    public void LogOutAccount() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         ProfilePage profilePage = new ProfilePage(driver);

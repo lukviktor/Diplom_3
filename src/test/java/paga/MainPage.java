@@ -29,9 +29,6 @@ public class MainPage {
     private final By logoStellarBurgers = By.xpath("//div[@class='AppHeader_header__logo__2D0X2']/a");
     //Ссылка логотип stellarburgers
 
-
-
-
     @Step("Нажать по кнопке Личный Кабинет на главной странице")
     public void clickBtnPersonAccount() {
         driver.findElement(btnPersonalAccount).click();
@@ -47,8 +44,6 @@ public class MainPage {
         return driver.findElement(headlineAssembleBurger).isDisplayed();
     }
 
-    ;
-
     @Step("Видимость кнопки оформить заказ")
     public boolean checkBtnPlaceOrder() {
         return driver.findElement(btnPlaceOrder).isDisplayed();
@@ -63,5 +58,4 @@ public class MainPage {
     public void clickLogoStellarBurgers() {
         driver.findElement(logoStellarBurgers).click();
     }
-
 }

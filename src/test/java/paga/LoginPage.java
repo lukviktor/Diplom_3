@@ -36,14 +36,15 @@ public class LoginPage {
 
 
     @Step("Проверка что находимся на странице Логин")
-    public boolean checkLoginPage(){
+    public boolean checkLoginPage() {
         return driver.findElement(btnRegisterLogin).isDisplayed();
     }
 
     @Step("Сообщение при не корректном вводе пароля при регистрации")
-    public boolean messageInvalidPassword(){
+    public boolean messageInvalidPassword() {
         return driver.findElement(messageInvalidPassword).isDisplayed();
     }
+
     @Step("Вход в аккаунт")
     public void userInputAccount(String email, String password) {
         driver.findElement(inputEmail).sendKeys(email);

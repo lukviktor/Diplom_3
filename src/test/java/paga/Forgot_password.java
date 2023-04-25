@@ -20,7 +20,7 @@ public class Forgot_password {
 
 
     @Step("ввод в поле Восстановление пароля email")
-    public void clickBtnEnter(){
+    public void clickBtnEnter() {
         driver.findElement(btnEnter).click();
     }
 }

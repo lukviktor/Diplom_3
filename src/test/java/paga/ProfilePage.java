@@ -20,31 +20,29 @@ public class ProfilePage {
     private final By inputPasswordDatsAccount = By.xpath("//ul/li[3]/div/div/input");
     // поле Email профиля
 
-
-
     private By profileUser = By.xpath("//a[@href='/account/profile']");
     //Ссылка на профиль
 
     private final By btnExit = By.xpath("//button[text()='Выход']");
     //Кнопка выход с аккаунта
 
-
-
     @Step("Проверка данных Name профиля при входе в аккаунт")
     public boolean checkingProfileNameData() {
         return driver.findElement(inputNameDataAccount).isDisplayed();
     }
+
     @Step("Проверка данных Email профиля при входе в аккаунт")
     public boolean checkingProfileEmailData() {
         return driver.findElement(inputEmailDatsAccount).isDisplayed();
     }
+
     @Step("Проверка данных Password профиля при входе в аккаунт")
     public boolean checkingProfilePasswordData() {
-          return driver.findElement(inputPasswordDatsAccount).isDisplayed();
+        return driver.findElement(inputPasswordDatsAccount).isDisplayed();
     }
 
     @Step("Проверка видимости ссылки на профиль")
-    public boolean checkingProfileUser(){
+    public boolean checkingProfileUser() {
         return driver.findElement(profileUser).isDisplayed();
     }
 
@@ -52,5 +50,4 @@ public class ProfilePage {
     public void clickBtnExit() {
         driver.findElement(btnExit).click();
     }
-
 }
