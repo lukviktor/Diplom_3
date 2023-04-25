@@ -1,5 +1,6 @@
 package paga;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -24,12 +25,20 @@ public class RegisterPage {
             //"button[text()='Зарегистрироваться']");
     // кнопка регистрация
 
+    private final By messageInvalidPassword = By.xpath("//p[@class='input__error text_type_main-default']");
+
+    // сообщение неверный пароль
+@Step("Ввод данных пользователя для регистрации")
     public void registrationUser(String name, String email, String password) {
         driver.findElement(inputNameRegister).sendKeys(name);
         driver.findElement(inputEmailRegister).sendKeys(email);
         driver.findElement(inputPasswordRegister).sendKeys(password);
         driver.findElement(btnRegisterRegistration).click();
 
+    }
+    @Step("Получение текста сообщения неверный пароль")
+    public String messageInvalidPassword(){
+        return driver.findElement(messageInvalidPassword).getText().toString();
     }
 
 }
