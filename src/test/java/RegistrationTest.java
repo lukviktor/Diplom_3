@@ -6,6 +6,7 @@ import paga.LoginPage;
 import paga.MainPage;
 import paga.RegisterPage;
 
+import static constant.UserData.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -21,10 +22,10 @@ public class RegistrationTest extends TestBase {
         LoginPage loginPage = new LoginPage(driver);
         RegisterPage registerPage = new RegisterPage(driver);
 
-        mainPage.clickBtnSignInAccount();
+        mainPage.clickBtnPersonAccount();
 
         loginPage.clickBtnRegistration();
-        registerPage.registrationUser("pinessareubeu1", "pinessareubeu-97741@yopmail.com", "password121");
+        registerPage.registrationUser(USER_NAME, USER_EMAIL, USER_PASSWORD);
         assertTrue(loginPage.checkLoginPage());
     }
 
@@ -38,19 +39,18 @@ public class RegistrationTest extends TestBase {
 
         mainPage.clickBtnSignInAccount();
         loginPage.clickBtnRegistration();
-        registerPage.registrationUser("pinessareubeu1", "pinessareubeu-97741@yopmail.com", "12345");
+        registerPage.registrationUser(USER_NAME, USER_EMAIL, "12345");
         String expected = registerPage.messageInvalidPassword();
-        System.out.println(expected);
         assertEquals(expected, "Некорректный пароль");
     }
 
     @DisplayName("Вход")
     @Description("вход по кнопке Войти в аккаунт» на главной странице")
-    @Test
+   // @Test
     public void LoginAccountMainPageTest() {
 
     }
-@Test
+//@Test
     public void sfgf(){
    /* mainPage.clickBtnSignInAccount();
     loginPage.clickBtnRegistration();*/

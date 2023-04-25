@@ -13,7 +13,8 @@ public class MainPage {
 
     private final By btnPersonalAccount = By.xpath("//a[@href='/account']");
 //Кнопка Личный Кабинет на главной странице
-    private final By btnSignInAccount = By.xpath("//*[@id='root']/div/main/section[2]/div/button");
+    private final By btnSignInAccount = By.xpath("//button[text()='Войти в аккаунт']");
+        //By.xpath("//*[@id='root']/div/main/section[2]/div/button");
     // кнопка «Войти в аккаунт» на главной странице"
 
 @Step("Нажать по кнопке Личный Кабинет на главной странице")
