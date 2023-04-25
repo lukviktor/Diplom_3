@@ -4,9 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
-import paga.LoginPage;
-import paga.MainPage;
-import paga.ProfilePage;
+import paga.*;
 
 import static constant.UserData.*;
 import static org.junit.Assert.assertTrue;
@@ -29,7 +27,6 @@ public class PersonalAccountTest extends TestBase {
         String accessToken = userStep.accessTokenUser(user);
         userStep.deleteDataUser(accessToken);
 
-
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         mainPage.clickBtnPersonAccount();
@@ -51,7 +48,6 @@ public class PersonalAccountTest extends TestBase {
         assertTrue(profilePage.checkingProfilePasswordData());
         assertTrue(profilePage.checkingProfileEmailData());
         assertTrue(profilePage.checkingProfileUser());
-
     }
 
     @DisplayName("Переход из личного кабинета в конструктор")
@@ -60,24 +56,41 @@ public class PersonalAccountTest extends TestBase {
     public void switchingPersonalAccountConstructorTest() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
+
         mainPage.clickBtnPersonAccount();
         loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD);
         mainPage.clickBtnPersonAccount();
         mainPage.clickConstructor();
         assertTrue(mainPage.checkBtnPlaceOrder());
-
     }
+
     @DisplayName("Переход из личного кабинета в конструктор")
     @Description("Проверь переход по клику на логотип Stellar Burgers")
     @Test
     public void switchingPersonalAccountLogoSBTest() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
+
         mainPage.clickBtnPersonAccount();
         loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD);
         mainPage.clickBtnPersonAccount();
         mainPage.clickLogoStellarBurgers();
         assertTrue(mainPage.checkBtnPlaceOrder());
+    }
 
+    @DisplayName("Выход из аккаунта")
+    @Description("Проверь выход по кнопке «Выйти» в личном кабинете.")
+    @Test
+    public void LogOutAccount(){
+        MainPage mainPage = new MainPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        ProfilePage profilePage = new ProfilePage(driver);
+
+        mainPage.clickBtnPersonAccount();
+        loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD);
+        mainPage.clickBtnPersonAccount();
+        profilePage.clickBtnExit();
+        assertTrue(loginPage.checkLoginPage());
+        assertTrue(loginPage.checkLoginPage());
     }
 }

@@ -25,6 +25,9 @@ public class ProfilePage {
     private By profileUser = By.xpath("//a[@href='/account/profile']");
     //Ссылка на профиль
 
+    private final By btnExit = By.xpath("//button[text()='Выход']");
+    //Кнопка выход с аккаунта
+
 
 
     @Step("Проверка данных Name профиля при входе в аккаунт")
@@ -45,5 +48,9 @@ public class ProfilePage {
         return driver.findElement(profileUser).isDisplayed();
     }
 
+    @Step("выход по кнопке «Выйти» в личном кабинете")
+    public void clickBtnExit() {
+        driver.findElement(btnExit).click();
+    }
 
 }
