@@ -3,10 +3,7 @@ import api.UserStep;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import paga.LoginPage;
-import paga.MainPage;
-import paga.ProfilePage;
-import paga.RegisterPage;
+import paga.*;
 
 import static constant.UserData.*;
 import static org.junit.Assert.assertEquals;
@@ -68,13 +65,25 @@ public class RegistrationTest extends TestBase {
     @Description("вход через кнопку в форме восстановления пароля")
     @Test
     public void loginButtonPasswordRecovery() {
+        UserStep userStep = new UserStep();
+        User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
+        userStep.createUser(user);
+
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         RegisterPage registerPage = new RegisterPage(driver);
         ProfilePage profilePage = new ProfilePage(driver);
+        Forgot_password forgotPassword = new Forgot_password(driver);
 
         mainPage.clickBtnSignInAccount();
         loginPage.clickBtnRegistration();
+
+        forgotPassword.clickBtnEnter();
+        loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD);
+        mainPage.clickBtnPersonAccount();
+        assertTrue(profilePage.checkingProfileNameData());
+        assertTrue(profilePage.checkingProfilePasswordData());
+        assertTrue(profilePage.checkingProfileEmailData());
 
     }
 }
