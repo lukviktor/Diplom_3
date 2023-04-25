@@ -1,4 +1,4 @@
-package paga;
+package stellarburgers.paga;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -20,7 +20,7 @@ public class ProfilePage {
     private final By inputPasswordDatsAccount = By.xpath("//ul/li[3]/div/div/input");
     // поле Email профиля
 
-    private By profileUser = By.xpath("//a[@href='/account/profile']");
+    private final By profileUser = By.xpath("//a[@href='/account/profile']");
     //Ссылка на профиль
 
     private final By btnExit = By.xpath("//button[text()='Выход']");

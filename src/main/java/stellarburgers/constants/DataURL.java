@@ -1,4 +1,4 @@
-package constant;
+package stellarburgers.constants;
 
 public class DataURL {
     public static final String URL_BASE = "https://stellarburgers.nomoreparties.site/";

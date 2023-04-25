@@ -1,4 +1,4 @@
-package api;
+package stellarburgers.api;
 
 public class User {
     private String email;

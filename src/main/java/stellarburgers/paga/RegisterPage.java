@@ -1,4 +1,4 @@
-package paga;
+package stellarburgers.paga;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -37,6 +37,6 @@ public class RegisterPage {
 
     @Step("Получение текста сообщения неверный пароль")
     public String messageInvalidPassword() {
-        return driver.findElement(messageInvalidPassword).getText().toString();
+        return driver.findElement(messageInvalidPassword).getText();
     }
 }

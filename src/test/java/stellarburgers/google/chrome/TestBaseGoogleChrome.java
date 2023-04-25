@@ -1,5 +1,7 @@
-import api.User;
-import api.UserStep;
+package stellarburgers.google.chrome;
+
+import stellarburgers.api.User;
+import stellarburgers.api.UserStep;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
@@ -8,11 +10,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static constant.DataURL.URL_BASE;
-import static constant.UserData.*;
+import static stellarburgers.constants.DataURL.URL_BASE;
+import static stellarburgers.constants.UserData.*;
 
 
-public class TestBase {
+public class TestBaseGoogleChrome {
     WebDriver driver;
 
     @Before

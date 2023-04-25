@@ -1,4 +1,4 @@
-package paga;
+package stellarburgers.paga;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;

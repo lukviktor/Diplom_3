@@ -1,17 +1,19 @@
-import api.User;
-import api.UserStep;
+package stellarburgers.google.chrome;
+
+import stellarburgers.api.User;
+import stellarburgers.api.UserStep;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
-import paga.LoginPage;
-import paga.MainPage;
-import paga.ProfilePage;
+import stellarburgers.paga.LoginPage;
+import stellarburgers.paga.MainPage;
+import stellarburgers.paga.ProfilePage;
 
-import static constant.UserData.*;
 import static org.junit.Assert.assertTrue;
+import static stellarburgers.constants.UserData.*;
 
-public class PersonalAccountTest extends TestBase {
+public class PersonalAccountTestGoogleChrome extends TestBaseGoogleChrome {
     @Before
     public void createUser() {
         UserStep userStep = new UserStep();

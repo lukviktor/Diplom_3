@@ -1,15 +1,17 @@
-import api.User;
-import api.UserStep;
+package stellarburgers.google.chrome;
+
+import stellarburgers.api.User;
+import stellarburgers.api.UserStep;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import paga.*;
+import stellarburgers.paga.*;
 
-import static constant.UserData.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static stellarburgers.constants.UserData.*;
 
-public class RegistrationTest extends TestBase {
+public class RegistrationGoogleChromeTest extends TestBaseGoogleChrome {
     @DisplayName("Регистрация")
     @Description("Успешную регистрацию")
     @Test
