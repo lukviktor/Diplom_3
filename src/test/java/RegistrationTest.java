@@ -1,9 +1,11 @@
+import api.User;
+import api.UserStep;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
-import org.junit.Before;
 import org.junit.Test;
 import paga.LoginPage;
 import paga.MainPage;
+import paga.ProfilePage;
 import paga.RegisterPage;
 
 import static constant.UserData.*;
@@ -11,7 +13,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class RegistrationTest extends TestBase {
-
 
 
     @DisplayName("Регистрация")
@@ -46,14 +47,23 @@ public class RegistrationTest extends TestBase {
 
     @DisplayName("Вход")
     @Description("вход по кнопке Войти в аккаунт» на главной странице")
-   // @Test
+    @Test
     public void LoginAccountMainPageTest() {
+        UserStep userStep = new UserStep();
+        User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
+        userStep.createUser(user);
 
+        MainPage mainPage = new MainPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        ProfilePage profilePage = new ProfilePage(driver);
+
+        mainPage.clickBtnSignInAccount();
+        loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD);
+        mainPage.clickBtnPersonAccount();
+        assertTrue(profilePage.checkingProfileNameData());
+        assertTrue(profilePage.checkingProfilePasswordData());
+        assertTrue(profilePage.checkingProfileEmailData());
     }
-//@Test
-    public void sfgf(){
-   /* mainPage.clickBtnSignInAccount();
-    loginPage.clickBtnRegistration();*/
-}
+
 
 }

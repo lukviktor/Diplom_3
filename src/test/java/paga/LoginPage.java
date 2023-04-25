@@ -50,6 +50,5 @@ public class LoginPage {
         driver.findElement(inputEmail).sendKeys(email);
         driver.findElement(inputPassword).sendKeys(password);
         driver.findElement(btnInput).click();
-
     }
 }
