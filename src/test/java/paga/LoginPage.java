@@ -26,7 +26,6 @@ public class LoginPage {
     private final By btnRecoverPassword = By.xpath("//a[@href='/forgot-password']");
     //кнопка формы восстановления пароля
 
-
     private final By messageInvalidPassword = By.xpath("//p[@class='input__error text_type_main-default']");
     //сообщение не корректный пароль
 

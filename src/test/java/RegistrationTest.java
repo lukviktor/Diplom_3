@@ -48,7 +48,7 @@ public class RegistrationTest extends TestBase {
     @DisplayName("Вход")
     @Description("вход по кнопке Войти в аккаунт» на главной странице")
     @Test
-    public void LoginAccountMainPageTest() {
+    public void loginAccountMainPageTest() {
         UserStep userStep = new UserStep();
         User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
         userStep.createUser(user);
@@ -64,6 +64,17 @@ public class RegistrationTest extends TestBase {
         assertTrue(profilePage.checkingProfilePasswordData());
         assertTrue(profilePage.checkingProfileEmailData());
     }
+    @DisplayName("Вход")
+    @Description("вход через кнопку в форме восстановления пароля")
+    @Test
+    public void loginButtonPasswordRecovery() {
+        MainPage mainPage = new MainPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        ProfilePage profilePage = new ProfilePage(driver);
 
+        mainPage.clickBtnSignInAccount();
+        loginPage.clickBtnRegistration();
 
+    }
 }
