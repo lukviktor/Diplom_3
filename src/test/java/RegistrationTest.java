@@ -30,7 +30,7 @@ public class RegistrationTest extends TestBase {
     @DisplayName("Регистрация")
     @Description("Ошибку для некорректного пароля. Минимальный пароль — шесть символов.")
     @Test
-    public void notSuccessfulRegistration() {
+    public void notSuccessfulRegistrationTest() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         RegisterPage registerPage = new RegisterPage(driver);
@@ -60,18 +60,19 @@ public class RegistrationTest extends TestBase {
         assertTrue(profilePage.checkingProfileNameData());
         assertTrue(profilePage.checkingProfilePasswordData());
         assertTrue(profilePage.checkingProfileEmailData());
+        assertTrue(profilePage.checkingProfileUser());
+        assertTrue(profilePage.checkingConstructor());
     }
     @DisplayName("Вход")
     @Description("вход через кнопку в форме восстановления пароля")
     @Test
-    public void loginButtonPasswordRecovery() {
+    public void loginButtonPasswordRecoveryTest() {
         UserStep userStep = new UserStep();
         User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
         userStep.createUser(user);
 
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
-        RegisterPage registerPage = new RegisterPage(driver);
         ProfilePage profilePage = new ProfilePage(driver);
         Forgot_password forgotPassword = new Forgot_password(driver);
 
@@ -84,6 +85,7 @@ public class RegistrationTest extends TestBase {
         assertTrue(profilePage.checkingProfileNameData());
         assertTrue(profilePage.checkingProfilePasswordData());
         assertTrue(profilePage.checkingProfileEmailData());
-
+        assertTrue(profilePage.checkingProfileUser());
+        assertTrue(profilePage.checkingConstructor());
     }
 }
