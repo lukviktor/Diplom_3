@@ -29,7 +29,7 @@ public class ConstructorGoogleChromeTest extends TestBaseGoogleChrome {
 
     //Начинки
     @DisplayName("Конструктор")
-    @Description("Пользователь авторизован. Проверка работают переходы к разделам Булки")
+    @Description("Пользователь авторизован. Проверка работают переходы к разделам Булки, Соусы, Начинки.")
     @Test
     public void transitionsSectionsBunsAuthorizationTest() {
         UserStep userStep = new UserStep();
@@ -54,7 +54,7 @@ public class ConstructorGoogleChromeTest extends TestBaseGoogleChrome {
     }
 
     @DisplayName("Конструктор")
-    @Description("Пользователь авторизован. Проверка работают переходы к разделам Булки")
+    @Description("Пользователь не авторизован. Проверка работают переходы к разделам Булки, Соусы, Начинки.")
     @Test
     public void transitionsSectionsBunsNotAuthorizationTest() {
         MainPage mainPage = new MainPage(driver);
