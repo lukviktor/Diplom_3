@@ -1,4 +1,4 @@
-package stellarburgers.google.chrome;
+package stellarburgers.yandex.browser;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -11,14 +11,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.UserData.*;
 
-public class RegistrationGoogleChromeTest extends TestBaseGoogleChrome {
+public class RegistrationYandexBrowserTest extends TestBaseYandexBrowser {
     @DisplayName("Регистрация")
     @Description("Успешную регистрацию")
     @Test
     public void successfulRegistrationTest() {
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        RegisterPage registerPage = new RegisterPage(driver);
+        MainPage mainPage = new MainPage(webDriver);
+        LoginPage loginPage = new LoginPage(webDriver);
+        RegisterPage registerPage = new RegisterPage(webDriver);
 
         mainPage.clickBtnPersonAccount();
 
@@ -31,9 +31,9 @@ public class RegistrationGoogleChromeTest extends TestBaseGoogleChrome {
     @Description("Ошибку для некорректного пароля. Минимальный пароль — шесть символов.")
     @Test
     public void notSuccessfulRegistrationTest() {
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        RegisterPage registerPage = new RegisterPage(driver);
+        MainPage mainPage = new MainPage(webDriver);
+        LoginPage loginPage = new LoginPage(webDriver);
+        RegisterPage registerPage = new RegisterPage(webDriver);
 
         mainPage.clickBtnSignInAccount();
         loginPage.clickBtnRegistration();
@@ -50,9 +50,9 @@ public class RegistrationGoogleChromeTest extends TestBaseGoogleChrome {
         User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
         userStep.createUser(user);
 
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        ProfilePage profilePage = new ProfilePage(driver);
+        MainPage mainPage = new MainPage(webDriver);
+        LoginPage loginPage = new LoginPage(webDriver);
+        ProfilePage profilePage = new ProfilePage(webDriver);
 
         mainPage.clickBtnSignInAccount();
         loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD);
@@ -72,10 +72,10 @@ public class RegistrationGoogleChromeTest extends TestBaseGoogleChrome {
         User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
         userStep.createUser(user);
 
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        ProfilePage profilePage = new ProfilePage(driver);
-        Forgot_password forgotPassword = new Forgot_password(driver);
+        MainPage mainPage = new MainPage(webDriver);
+        LoginPage loginPage = new LoginPage(webDriver);
+        ProfilePage profilePage = new ProfilePage(webDriver);
+        Forgot_password forgotPassword = new Forgot_password(webDriver);
 
         mainPage.clickBtnSignInAccount();
         loginPage.clickBtnRegistration();

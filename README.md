@@ -12,18 +12,20 @@
     gson
 ### Для запуска автотестов необходимо:
 Для запуска автотеста в console прописать команду:
-
 ```sh
 mvn clean test
 ```
-
 Для создания отчета в Allure ввести команду:
 ```sh
     mvn allure:serve
 ```
     если не сработало
 ```sh
-    allure serve target/surefire-reports/
+    allure serve target/surefire-reports/    
+```
+*добавляем папку с отчётом Allure к файлам. Ключ -f пригодится, если папка target указана в .gitignore*
+```sh
+git add -f .\target\allure-results\.
 ```
 ## Что нужно сделать
 *Опиши элементы, которые будешь использовать в тестах, с помощью Page Object.*

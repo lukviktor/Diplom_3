@@ -1,4 +1,4 @@
-package stellarburgers.google.chrome;
+package stellarburgers.yandex.browser;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -11,7 +11,7 @@ import stellarburgers.paga.MainPage;
 import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.UserData.*;
 
-public class ConstructorGoogleChromeTest extends TestBaseGoogleChrome {
+public class ConstructorYandexBrowserTest extends TestBaseYandexBrowser {
     private final String fluorescentBuns = "Флюоресцентная булка R2-D3";
     //Булка
 
@@ -36,8 +36,8 @@ public class ConstructorGoogleChromeTest extends TestBaseGoogleChrome {
         User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
         userStep.createUser(user);
 
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
+        MainPage mainPage = new MainPage(webDriver);
+        LoginPage loginPage = new LoginPage(webDriver);
         mainPage.clickBtnPersonAccount(); //MaimPage
         loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD); //LoginPage
         mainPage.clickBtnPersonAccount();
@@ -57,7 +57,7 @@ public class ConstructorGoogleChromeTest extends TestBaseGoogleChrome {
     @Description("Пользователь авторизован. Проверка работают переходы к разделам Булки")
     @Test
     public void transitionsSectionsBunsNotAuthorizationTest() {
-        MainPage mainPage = new MainPage(driver);
+        MainPage mainPage = new MainPage(webDriver);
         mainPage.clickBtnPersonAccount();
         mainPage.clickConstructor();
 

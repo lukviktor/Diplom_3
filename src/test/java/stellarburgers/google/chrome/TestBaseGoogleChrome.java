@@ -1,12 +1,12 @@
 package stellarburgers.google.chrome;
 
-import stellarburgers.api.User;
-import stellarburgers.api.UserStep;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import stellarburgers.api.User;
+import stellarburgers.api.UserStep;
 
 import java.util.concurrent.TimeUnit;
 

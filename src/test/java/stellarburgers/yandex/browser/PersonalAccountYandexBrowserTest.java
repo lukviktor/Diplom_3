@@ -1,4 +1,4 @@
-package stellarburgers.google.chrome;
+package stellarburgers.yandex.browser;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -13,7 +13,7 @@ import stellarburgers.paga.ProfilePage;
 import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.UserData.*;
 
-public class PersonalAccountGoogleChromeTest extends TestBaseGoogleChrome {
+public class PersonalAccountYandexBrowserTest extends TestBaseYandexBrowser {
     @Before
     public void createUser() {
         UserStep userStep = new UserStep();
@@ -31,8 +31,8 @@ public class PersonalAccountGoogleChromeTest extends TestBaseGoogleChrome {
         String accessToken = userStep.accessTokenUser(user);
         userStep.deleteDataUser(accessToken);
 
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
+        MainPage mainPage = new MainPage(webDriver);
+        LoginPage loginPage = new LoginPage(webDriver);
         mainPage.clickBtnPersonAccount();
         assertTrue(loginPage.checkLoginPage());
     }
@@ -41,9 +41,9 @@ public class PersonalAccountGoogleChromeTest extends TestBaseGoogleChrome {
     @Description("Проверь переход по клику на «Личный кабинет». С авторизации")
     @Test
     public void clickThroughPersonalAccountAuthorizationTest() {
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        ProfilePage profilePage = new ProfilePage(driver);
+        MainPage mainPage = new MainPage(webDriver);
+        LoginPage loginPage = new LoginPage(webDriver);
+        ProfilePage profilePage = new ProfilePage(webDriver);
 
         mainPage.clickBtnPersonAccount();
         loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD);
@@ -58,8 +58,8 @@ public class PersonalAccountGoogleChromeTest extends TestBaseGoogleChrome {
     @Description("Проверь переход по клику на «Конструктор»")
     @Test
     public void switchingPersonalAccountConstructorTest() {
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
+        MainPage mainPage = new MainPage(webDriver);
+        LoginPage loginPage = new LoginPage(webDriver);
 
         mainPage.clickBtnPersonAccount();
         loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD);
@@ -72,8 +72,8 @@ public class PersonalAccountGoogleChromeTest extends TestBaseGoogleChrome {
     @Description("Проверь переход по клику на логотип Stellar Burgers")
     @Test
     public void switchingPersonalAccountLogoSBTest() {
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
+        MainPage mainPage = new MainPage(webDriver);
+        LoginPage loginPage = new LoginPage(webDriver);
 
         mainPage.clickBtnPersonAccount();
         loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD);
@@ -86,9 +86,9 @@ public class PersonalAccountGoogleChromeTest extends TestBaseGoogleChrome {
     @Description("Проверь выход по кнопке «Выйти» в личном кабинете.")
     @Test
     public void LogOutAccount() {
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        ProfilePage profilePage = new ProfilePage(driver);
+        MainPage mainPage = new MainPage(webDriver);
+        LoginPage loginPage = new LoginPage(webDriver);
+        ProfilePage profilePage = new ProfilePage(webDriver);
 
         mainPage.clickBtnPersonAccount();
         loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD);

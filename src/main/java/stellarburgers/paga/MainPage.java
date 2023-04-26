@@ -38,10 +38,9 @@ public class MainPage {
     ////Кнопка перехода "Начинки"
 
 
-
     @Step("Видимость сета выбора при переходе по кнопке булки")
     public boolean chooseBuns(String fluorescentBuns, String craterBuns) { // метод выбора города по названию
-                // выбор булки
+        // выбор булки
         return driver.findElement(By.xpath(String.format("//*[text()='%s']", fluorescentBuns))).isDisplayed() |
                 driver.findElement(By.xpath(String.format("//*[text()='%s']", craterBuns))).isDisplayed();
     }
@@ -102,9 +101,10 @@ public class MainPage {
     public void clickBtnSauces() {
         driver.findElement(btnSauces).click();
     }
+
     @Step("Переход на кнопка Начинки") //MaimPage
     public void clickBtnFillings() {
         driver.findElement(btnFillings).click();
     }
 
-   }
+}
