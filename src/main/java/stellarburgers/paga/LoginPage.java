@@ -51,4 +51,5 @@ public class LoginPage {
         driver.findElement(inputPassword).sendKeys(password);
         driver.findElement(btnInput).click();
     }
+
 }

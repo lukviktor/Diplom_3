@@ -13,7 +13,7 @@ import stellarburgers.paga.ProfilePage;
 import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.UserData.*;
 
-public class PersonalAccountTestGoogleChrome extends TestBaseGoogleChrome {
+public class PersonalAccountGoogleChromeTest extends TestBaseGoogleChrome {
     @Before
     public void createUser() {
         UserStep userStep = new UserStep();

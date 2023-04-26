@@ -29,6 +29,40 @@ public class MainPage {
     private final By logoStellarBurgers = By.xpath("//div[@class='AppHeader_header__logo__2D0X2']/a");
     //Ссылка логотип stellarburgers
 
+    private final By btnBuns = By.xpath("//span[text()='Булки']");
+    ////Кнопка перехода "Булки"
+
+    private final By btnSauces = By.xpath("//span[text()='Соусы']");
+    ////Кнопка перехода "Соусы"
+    private final By btnFillings = By.xpath("//span[text()='Начинки']");
+    ////Кнопка перехода "Начинки"
+
+
+
+    @Step("Видимость сета выбора при переходе по кнопке булки")
+    public boolean chooseBuns(String fluorescentBuns, String craterBuns) { // метод выбора города по названию
+                // выбор булки
+        return driver.findElement(By.xpath(String.format("//*[text()='%s']", fluorescentBuns))).isDisplayed() |
+                driver.findElement(By.xpath(String.format("//*[text()='%s']", craterBuns))).isDisplayed();
+    }
+
+    @Step("Видимость сета выбора при переходе по кнопке соусы")
+    public boolean chooseSauces(String spicy_XSous, String spaceSous) { // метод выбора города по названию
+        // выбор булки
+        return driver.findElement(By.xpath(String.format("//*[text()='%s']", spicy_XSous))).isDisplayed() |
+                driver.findElement(By.xpath(String.format("//*[text()='%s']", spaceSous))).isDisplayed();
+    }
+
+    @Step("Видимость сета выбора при переходе по кнопке Начинки")
+    public boolean chooseFillings(String meatShellfish, String beefMeteorite) { // метод выбора города по названию
+        // выбор булки
+        return driver.findElement(By.xpath(String.format("//*[text()='%s']", meatShellfish))).isDisplayed() |
+                driver.findElement(By.xpath(String.format("//*[text()='%s']", beefMeteorite))).isDisplayed();
+    }
+
+
+    private final By fillingElement = By.xpath("//p[text()='Мясо бессмертных моллюсков Protostomia']");
+
     @Step("Нажать по кнопке Личный Кабинет на главной странице")
     public void clickBtnPersonAccount() {
         driver.findElement(btnPersonalAccount).click();
@@ -58,4 +92,19 @@ public class MainPage {
     public void clickLogoStellarBurgers() {
         driver.findElement(logoStellarBurgers).click();
     }
-}
+
+    @Step("Переход на кнопка Булки") //MaimPage
+    public void clickBtnBuns() {
+        driver.findElement(btnBuns).click();
+    }
+
+    @Step("Переход на кнопка Соусы") //MaimPage
+    public void clickBtnSauces() {
+        driver.findElement(btnSauces).click();
+    }
+    @Step("Переход на кнопка Начинки") //MaimPage
+    public void clickBtnFillings() {
+        driver.findElement(btnFillings).click();
+    }
+
+   }
