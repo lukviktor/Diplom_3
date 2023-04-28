@@ -1,6 +1,8 @@
 package stellarburgers.brauserall;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -28,7 +30,7 @@ public class ChromeAndYandexTest {
         return Arrays.asList(new String[]{"chrome", "yandex"});
     }
 
-    @Test
+    @Before
     public void test() {
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -52,7 +54,8 @@ public class ChromeAndYandexTest {
         }
 
         driver.get(URL_BASE);
-        driver.close();
         driver.quit();
     }
+    @After
+    public void tearDown(){}
 }
