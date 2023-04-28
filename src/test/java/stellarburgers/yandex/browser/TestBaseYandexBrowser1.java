@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 import static stellarburgers.constants.DataURL.URL_BASE;
 import static stellarburgers.constants.UserData.*;
 
-public class TestBaseYandexBrowser {
+public class TestBaseYandexBrowser1 {
     WebDriver driver;
 
     @Before

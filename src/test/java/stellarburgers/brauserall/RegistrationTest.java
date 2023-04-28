@@ -12,10 +12,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.UserData.*;
 
-public class RegistrationTest {
+public class RegistrationTest extends TestBaseChromeAndYandex{
 
 
     WebDriver driver;
+
+    public RegistrationTest(Browser1 browser1) {
+        super(browser1);
+    }
+
     @DisplayName("Регистрация")
     @Description("Успешную регистрацию")
     @Test

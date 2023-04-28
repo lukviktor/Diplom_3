@@ -1,10 +1,8 @@
 package stellarburgers.brauserall;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.qameta.allure.Description;
-import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
@@ -12,15 +10,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import stellarburgers.api.User;
 import stellarburgers.api.UserStep;
-import stellarburgers.paga.LoginPage;
-import stellarburgers.paga.MainPage;
-import stellarburgers.paga.RegisterPage;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.DataURL.URL_BASE;
 import static stellarburgers.constants.UserData.*;
 
@@ -28,32 +22,36 @@ import static stellarburgers.constants.UserData.*;
 public class TestBaseChromeAndYandex {
     private WebDriver driver;
 
+    private final Browser1 browser1;
 
-    private Browser browser;
-
+    public TestBaseChromeAndYandex(Browser1 browser1) {
+        this.browser1 = browser1;
+    }
 
     @Parameterized.Parameters()
-    public static Collection<Browser> data() {
-        return Arrays.asList(Browser.values());
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+                {Browser1.CHROME},
+                {Browser1.YANDEX}
+        });
     }
 
     @Before
-    public void test() {
+    public void setup() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 
-        switch (browser) {
-            case CHROME:
-                driver = new ChromeDriver();
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/chrome/chromedriver.exe");
-                options.setBinary("path/to/chrome/binary");
-                break;
-            case YANDEX:
-                driver = new ChromeDriver(options);
-                System.setProperty("webdriver.chrome.driver", "src/main/resources/yandex/chromedriver.exe");
-                options.setBinary("C:/Users/lvikt/AppData/Local/Yandex/YandexBrowser/Application/browser.exe");
-                break;
+        String binaryPath = browser1.getBinaryPath();
+        if (binaryPath != null) {
+            options.setBinary(binaryPath);
         }
+
+        String driverPath = browser1.getDriverPath();
+        if (driverPath != null) {
+            System.setProperty("webdriver.chrome.driver", driverPath);
+        }
+
+        driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
@@ -61,6 +59,18 @@ public class TestBaseChromeAndYandex {
 
         driver.get(URL_BASE);
 
+        UserStep userStep = new UserStep();
+        User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
+
+        String accessToken = userStep.accessTokenUser(user);
+        if (accessToken != null) {
+            userStep.deleteDataUser(accessToken);
+        }
+    }
+
+    @After
+    public void tearDown() {
+        driver.close();
         driver.quit();
 
         UserStep userStep = new UserStep();
@@ -72,20 +82,5 @@ public class TestBaseChromeAndYandex {
         }
     }
 
-    @DisplayName("Регистрация")
-    @Description("Успешную регистрацию")
-    @Test
-    public void successfulRegistrationTest() {
 
-
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        RegisterPage registerPage = new RegisterPage(driver);
-
-        mainPage.clickBtnPersonAccount();
-
-        loginPage.clickBtnRegistration();
-        registerPage.registrationUser(USER_NAME, USER_EMAIL, USER_PASSWORD);
-        assertTrue(loginPage.checkLoginPage());
-    }
 }

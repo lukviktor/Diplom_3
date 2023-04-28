@@ -1,6 +1,4 @@
 package stellarburgers.brauserall;
 
-public enum Browser {
-    CHROME,
-    YANDEX
+public class Browser {
 }

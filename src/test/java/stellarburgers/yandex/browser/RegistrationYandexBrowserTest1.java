@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.UserData.*;
 
-public class RegistrationYandexBrowserTest extends TestBaseYandexBrowser {
+public class RegistrationYandexBrowserTest1 extends TestBaseYandexBrowser1 {
     @DisplayName("Регистрация")
     @Description("Успешную регистрацию")
     @Test

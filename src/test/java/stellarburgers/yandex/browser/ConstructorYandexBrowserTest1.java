@@ -11,7 +11,7 @@ import stellarburgers.paga.MainPage;
 import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.UserData.*;
 
-public class ConstructorYandexBrowserTest extends TestBaseYandexBrowser {
+public class ConstructorYandexBrowserTest1 extends TestBaseYandexBrowser1 {
     private final String fluorescentBuns = "Флюоресцентная булка R2-D3";
     //Булка
 
