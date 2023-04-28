@@ -52,7 +52,7 @@ public class ChromeAndYandexTest {
         }
 
         driver.get(URL_BASE);
-        driver.quit();
         driver.close();
+        driver.quit();
     }
 }
