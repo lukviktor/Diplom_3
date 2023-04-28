@@ -36,8 +36,8 @@ public class ConstructorYandexBrowserTest extends TestBaseYandexBrowser {
         User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
         userStep.createUser(user);
 
-        MainPage mainPage = new MainPage(webDriver);
-        LoginPage loginPage = new LoginPage(webDriver);
+        MainPage mainPage = new MainPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
         mainPage.clickBtnPersonAccount(); //MaimPage
         loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD); //LoginPage
         mainPage.clickBtnPersonAccount();
@@ -57,7 +57,7 @@ public class ConstructorYandexBrowserTest extends TestBaseYandexBrowser {
     @Description("Пользователь не авторизован. Проверка работают переходы к разделам Булки, Соусы, Начинки.")
     @Test
     public void transitionsSectionsBunsNotAuthorizationTest() {
-        MainPage mainPage = new MainPage(webDriver);
+        MainPage mainPage = new MainPage(driver);
         mainPage.clickBtnPersonAccount();
         mainPage.clickConstructor();
 

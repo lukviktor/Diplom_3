@@ -16,9 +16,9 @@ public class RegistrationYandexBrowserTest extends TestBaseYandexBrowser {
     @Description("Успешную регистрацию")
     @Test
     public void successfulRegistrationTest() {
-        MainPage mainPage = new MainPage(webDriver);
-        LoginPage loginPage = new LoginPage(webDriver);
-        RegisterPage registerPage = new RegisterPage(webDriver);
+        MainPage mainPage = new MainPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
 
         mainPage.clickBtnPersonAccount();
 
@@ -31,9 +31,9 @@ public class RegistrationYandexBrowserTest extends TestBaseYandexBrowser {
     @Description("Ошибку для некорректного пароля. Минимальный пароль — шесть символов.")
     @Test
     public void notSuccessfulRegistrationTest() {
-        MainPage mainPage = new MainPage(webDriver);
-        LoginPage loginPage = new LoginPage(webDriver);
-        RegisterPage registerPage = new RegisterPage(webDriver);
+        MainPage mainPage = new MainPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
 
         mainPage.clickBtnSignInAccount();
         loginPage.clickBtnRegistration();
@@ -50,9 +50,9 @@ public class RegistrationYandexBrowserTest extends TestBaseYandexBrowser {
         User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
         userStep.createUser(user);
 
-        MainPage mainPage = new MainPage(webDriver);
-        LoginPage loginPage = new LoginPage(webDriver);
-        ProfilePage profilePage = new ProfilePage(webDriver);
+        MainPage mainPage = new MainPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        ProfilePage profilePage = new ProfilePage(driver);
 
         mainPage.clickBtnSignInAccount();
         loginPage.userInputAccount(USER_EMAIL, USER_PASSWORD);
@@ -72,10 +72,10 @@ public class RegistrationYandexBrowserTest extends TestBaseYandexBrowser {
         User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
         userStep.createUser(user);
 
-        MainPage mainPage = new MainPage(webDriver);
-        LoginPage loginPage = new LoginPage(webDriver);
-        ProfilePage profilePage = new ProfilePage(webDriver);
-        Forgot_password forgotPassword = new Forgot_password(webDriver);
+        MainPage mainPage = new MainPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        ProfilePage profilePage = new ProfilePage(driver);
+        Forgot_password forgotPassword = new Forgot_password(driver);
 
         mainPage.clickBtnSignInAccount();
         loginPage.clickBtnRegistration();

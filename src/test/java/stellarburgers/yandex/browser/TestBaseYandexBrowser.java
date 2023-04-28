@@ -15,7 +15,7 @@ import static stellarburgers.constants.DataURL.URL_BASE;
 import static stellarburgers.constants.UserData.*;
 
 public class TestBaseYandexBrowser {
-    WebDriver webDriver;
+    WebDriver driver;
 
     @Before
     //@Test
@@ -27,23 +27,23 @@ public class TestBaseYandexBrowser {
     В пропертя прописываем путь к драйверу
      */
         WebDriverManager.chromedriver().setup();
-        System.setProperty("webdriver.chrome.driver", "D:/projects/Diplom_Viktor_Lukashev_17/Diplom_3/src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/yandex/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
 
         // У каждого свой путь к бинарнику YandexBrowser. Необходимо менять путь как на твоем ПК.
         options.setBinary("C:/Users/lvikt/AppData/Local/Yandex/YandexBrowser/Application/browser.exe");
-        webDriver = new ChromeDriver(options);
-        webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        webDriver.get(URL_BASE);
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.get(URL_BASE);
 
     }
 
     @After
     public void tearDown() {
-        webDriver.close();
-        webDriver.quit();
+        driver.close();
+        driver.quit();
 
         UserStep userStep = new UserStep();
         User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
