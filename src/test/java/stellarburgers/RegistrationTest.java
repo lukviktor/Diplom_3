@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.UserData.*;
 
-public class RegistrationTest extends Base {
+public class RegistrationTest extends BaseSetBrowsers {
     public RegistrationTest(String browserType, String binaryPath) {
         super(browserType, binaryPath);
     }

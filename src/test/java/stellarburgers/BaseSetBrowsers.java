@@ -19,36 +19,34 @@ import static stellarburgers.constants.DataURL.URL_BASE;
 import static stellarburgers.constants.UserData.*;
 
 @RunWith(Parameterized.class)
-public class Base {
+public class BaseSetBrowsers {
     WebDriver driver;
     String browserType;
     String binaryPath;
-    private static String setPropertyYandexBrowser = "src/main/resources/yandex/chromedriver.exe";
+    private static final String setPropertyYandexBrowser = "src/main/resources/yandex/chromedriver.exe";
 
-    private static String systemPropertySettings = "webdriver.chrome.driver";
+    private static final String systemPropertySettings = "webdriver.chrome.driver";
 
-    private static String setBinaryYandexBrowser = "C:/Users/lvikt/AppData/Local/Yandex/YandexBrowser/Application/browser.exe";
+    private static final String setBinaryYandexBrowser = "C:/Users/lvikt/AppData/Local/Yandex/YandexBrowser/Application/browser.exe";
     //Необходимо менять путь к бинарнику YandexBrowser как на твоем ПК.
 
-    public Base(String browserType, String binaryPath) {
+    public BaseSetBrowsers(String browserType, String binaryPath) {
         this.browserType = browserType;
         this.binaryPath = binaryPath;
     }
 
     @Before
     public void setUp() {
-        switch (browserType) {
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
+        if (browserType.equals("chrome")) {
+            WebDriverManager.chromedriver().setup();
 
-                ChromeOptions options = new ChromeOptions();
-                if (binaryPath != null) {
-                    System.setProperty(systemPropertySettings, setPropertyYandexBrowser);
-                    options.setBinary(binaryPath);
+            ChromeOptions options = new ChromeOptions();
+            if (binaryPath != null) {
+                System.setProperty(systemPropertySettings, setPropertyYandexBrowser);
+                options.setBinary(binaryPath);
 
-                }
-                driver = new ChromeDriver(options);
-                break;
+            }
+            driver = new ChromeDriver(options);
             // Добавить поддержку других типов браузеров
         }
 
