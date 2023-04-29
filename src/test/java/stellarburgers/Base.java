@@ -24,9 +24,12 @@ public class Base {
     String browserType;
     String binaryPath;
     private static String setPropertyYandexBrowser = "src/main/resources/yandex/chromedriver.exe";
-    private static String setBinaryYandexBrowser = "C:/Users/lvikt/AppData/Local/Yandex/YandexBrowser/Application/browser.exe";
 
-    //Необходимо менять к бинарнику YandexBrowser путь как на твоем ПК.
+    private static String systemPropertySettings = "webdriver.chrome.driver";
+
+    private static String setBinaryYandexBrowser = "C:/Users/lvikt/AppData/Local/Yandex/YandexBrowser/Application/browser.exe";
+    //Необходимо менять путь к бинарнику YandexBrowser как на твоем ПК.
+
     public Base(String browserType, String binaryPath) {
         this.browserType = browserType;
         this.binaryPath = binaryPath;
@@ -40,7 +43,7 @@ public class Base {
 
                 ChromeOptions options = new ChromeOptions();
                 if (binaryPath != null) {
-                    System.setProperty("webdriver.chrome.driver", setPropertyYandexBrowser);
+                    System.setProperty(systemPropertySettings, setPropertyYandexBrowser);
                     options.setBinary(binaryPath);
 
                 }
@@ -57,7 +60,6 @@ public class Base {
 
     @After
     public void tearDown() {
-        driver.close();
         driver.quit();
 
         UserStep userStep = new UserStep();
