@@ -13,7 +13,7 @@ import stellarburgers.paga.ProfilePage;
 import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.UserData.*;
 
-public class PersonalAccountYandexBrowserTest1 extends TestBaseYandexBrowser1 {
+public class PersonalAccountYandexBrowserTest extends TestBaseYandexBrowser {
     @Before
     public void createUser() {
         UserStep userStep = new UserStep();

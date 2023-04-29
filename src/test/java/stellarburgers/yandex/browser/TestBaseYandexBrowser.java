@@ -3,18 +3,16 @@ package stellarburgers.yandex.browser;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import stellarburgers.api.User;
-import stellarburgers.api.UserStep;
 
 import java.util.concurrent.TimeUnit;
 
 import static stellarburgers.constants.DataURL.URL_BASE;
-import static stellarburgers.constants.UserData.*;
 
-public class TestBaseYandexBrowser1 {
+public class TestBaseYandexBrowser {
     WebDriver driver;
 
     @Before
@@ -39,12 +37,16 @@ public class TestBaseYandexBrowser1 {
         driver.get(URL_BASE);
 
     }
+    @Test
+    public void tests(){
+
+    }
 
     @After
     public void tearDown() {
         driver.close();
         driver.quit();
-
+/*
         UserStep userStep = new UserStep();
         User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
 
@@ -52,5 +54,6 @@ public class TestBaseYandexBrowser1 {
         if (accessToken != null) {
             userStep.deleteDataUser(accessToken);
         }
+        */
     }
 }

@@ -1,9 +1,8 @@
-package stellarburgers.brauserall;
+package stellarburgers.yandex.browser;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import stellarburgers.api.User;
 import stellarburgers.api.UserStep;
 import stellarburgers.paga.*;
@@ -12,22 +11,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.UserData.*;
 
-public class RegistrationTest extends TestBaseChromeAndYandex{
-
-
-    WebDriver driver;
-
-    public RegistrationTest(Browser1 browser1) {
-        super(browser1);
-    }
-
+public class RegistrationYandexBrowserTest extends TestBaseYandexBrowser {
     @DisplayName("Регистрация")
     @Description("Успешную регистрацию")
     @Test
     public void successfulRegistrationTest() {
-
-
-
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         RegisterPage registerPage = new RegisterPage(driver);
@@ -61,7 +49,6 @@ public class RegistrationTest extends TestBaseChromeAndYandex{
         UserStep userStep = new UserStep();
         User user = new User(USER_NAME, USER_EMAIL, USER_PASSWORD);
         userStep.createUser(user);
-
 
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
