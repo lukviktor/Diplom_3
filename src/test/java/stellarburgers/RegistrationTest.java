@@ -1,4 +1,4 @@
-package stellarburgers.google.chrome;
+package stellarburgers;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -11,7 +11,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stellarburgers.constants.UserData.*;
 
-public class RegistrationGoogleChromeTest extends TestBaseGoogleChrome {
+public class RegistrationTest extends Base {
+    public RegistrationTest(String browserType, String binaryPath) {
+        super(browserType, binaryPath);
+    }
     @DisplayName("Регистрация")
     @Description("Успешную регистрацию")
     @Test
