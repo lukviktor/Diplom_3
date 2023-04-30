@@ -26,6 +26,9 @@ public class ProfilePage {
     private final By btnExit = By.xpath("//button[text()='Выход']");
     //Кнопка выход с аккаунта
 
+    private final By textProfilePage = By.xpath("//p[contains(text(), 'изменить свои персональные данные')]");
+    // В этом разделе вы можете изменить свои персональные данные
+
     @Step("Проверка данных Name профиля при входе в аккаунт")
     public boolean checkingProfileNameData() {
         return driver.findElement(inputNameDataAccount).isDisplayed();
@@ -44,6 +47,10 @@ public class ProfilePage {
     @Step("Проверка видимости ссылки на профиль")
     public boolean checkingProfileUser() {
         return driver.findElement(profileUser).isDisplayed();
+    }
+    @Step("Проверка видимости текста (В этом разделе вы можете изменить свои персональные данные)")
+    public boolean checkingTextProfilePage() {
+        return driver.findElement(textProfilePage).isDisplayed();
     }
 
     @Step("выход по кнопке «Выйти» в личном кабинете")

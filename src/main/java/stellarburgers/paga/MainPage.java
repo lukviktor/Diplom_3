@@ -38,6 +38,7 @@ public class MainPage {
     ////Кнопка перехода "Начинки"
 
 
+
     @Step("Видимость сета выбора при переходе по кнопке булки")
     public boolean chooseBuns(String fluorescentBuns, String craterBuns) { // метод выбора города по названию
         // выбор булки
