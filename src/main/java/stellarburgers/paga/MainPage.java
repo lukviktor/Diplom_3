@@ -40,21 +40,21 @@ public class MainPage {
 
 
     @Step("Видимость сета выбора при переходе по кнопке булки")
-    public boolean chooseBuns(String fluorescentBuns, String craterBuns) { // метод выбора города по названию
+    public boolean chooseBuns(String fluorescentBuns, String craterBuns) { // метод выбора продукта по названию
         // выбор булки
         return driver.findElement(By.xpath(String.format("//*[text()='%s']", fluorescentBuns))).isDisplayed() |
                 driver.findElement(By.xpath(String.format("//*[text()='%s']", craterBuns))).isDisplayed();
     }
 
     @Step("Видимость сета выбора при переходе по кнопке соусы")
-    public boolean chooseSauces(String spicy_XSous, String spaceSous) { // метод выбора города по названию
+    public boolean chooseSauces(String spicy_XSous, String spaceSous) { // метод выбора продукта по названию
         // выбор булки
         return driver.findElement(By.xpath(String.format("//*[text()='%s']", spicy_XSous))).isDisplayed() |
                 driver.findElement(By.xpath(String.format("//*[text()='%s']", spaceSous))).isDisplayed();
     }
 
     @Step("Видимость сета выбора при переходе по кнопке Начинки")
-    public boolean chooseFillings(String meatShellfish, String beefMeteorite) { // метод выбора города по названию
+    public boolean chooseFillings(String meatShellfish, String beefMeteorite) { // метод выбора продукта по названию
         // выбор булки
         return driver.findElement(By.xpath(String.format("//*[text()='%s']", meatShellfish))).isDisplayed() |
                 driver.findElement(By.xpath(String.format("//*[text()='%s']", beefMeteorite))).isDisplayed();

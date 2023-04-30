@@ -1,6 +1,7 @@
 package stellarburgers;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -26,6 +27,8 @@ public class BaseSetBrowsers {
     private static final String setPropertyYandexBrowser = "src/main/resources/yandex/chromedriver.exe";
 
     private static final String systemPropertySettings = "webdriver.chrome.driver";
+    private static final String chromeBrowser = "chrome";
+    private static final String yandexBrowser = chromeBrowser;
 
     private static final String setBinaryYandexBrowser = "C:/Users/lvikt/AppData/Local/Yandex/YandexBrowser/Application/browser.exe";
     //Необходимо менять путь к бинарнику YandexBrowser как на твоем ПК.
@@ -34,7 +37,6 @@ public class BaseSetBrowsers {
         this.browserType = browserType;
         this.binaryPath = binaryPath;
     }
-
     @Before
     public void setUp() {
         if (browserType.equals("chrome")) {
@@ -69,11 +71,11 @@ public class BaseSetBrowsers {
         }
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Browser: {0}")
     public static Collection<Object[]> getBrowserData() {
         return Arrays.asList(new Object[][]{
-                {"chrome", null},
-                {"chrome", setBinaryYandexBrowser}
+                {chromeBrowser, null},
+                {yandexBrowser, setBinaryYandexBrowser}
         });
     }
 }

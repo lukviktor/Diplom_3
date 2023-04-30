@@ -15,8 +15,10 @@ public class RegistrationTest extends BaseSetBrowsers {
     public RegistrationTest(String browserType, String binaryPath) {
         super(browserType, binaryPath);
     }
+
     @DisplayName("Регистрация")
-    @Description("Успешную регистрацию")
+    @Description("Успешная регистрацию")
+
     @Test
     public void successfulRegistrationTest() {
         MainPage mainPage = new MainPage(driver);
@@ -31,7 +33,7 @@ public class RegistrationTest extends BaseSetBrowsers {
     }
 
     @DisplayName("Регистрация")
-    @Description("Ошибку для некорректного пароля. Минимальный пароль — шесть символов.")
+    @Description("Ошибка для некорректного пароля. Минимальный пароль — шесть символов.")
     @Test
     public void notSuccessfulRegistrationTest() {
         MainPage mainPage = new MainPage(driver);
@@ -46,7 +48,7 @@ public class RegistrationTest extends BaseSetBrowsers {
     }
 
     @DisplayName("Вход")
-    @Description("вход по кнопке Войти в аккаунт» на главной странице")
+    @Description("Вход по кнопке Войти в аккаунт» на главной странице")
     @Test
     public void loginAccountMainPageTest() {
         UserStep userStep = new UserStep();
@@ -68,7 +70,7 @@ public class RegistrationTest extends BaseSetBrowsers {
     }
 
     @DisplayName("Вход")
-    @Description("вход через кнопку в форме восстановления пароля")
+    @Description("Вход через кнопку в форме восстановления пароля")
     @Test
     public void loginButtonPasswordRecoveryTest() {
         UserStep userStep = new UserStep();

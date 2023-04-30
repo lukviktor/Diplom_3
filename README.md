@@ -10,7 +10,11 @@
     RestAssured 5
     Allure
     gson
-### Для запуска автотестов необходимо:
+### Для запуска автотестов и создания отчета в Allure ввести команду:
+```sh
+mvn clean test allure:serve
+```
+
 Для запуска автотеста в console прописать команду:
 ```sh
 mvn clean test
@@ -19,10 +23,7 @@ mvn clean test
 ```sh
     mvn allure:serve
 ```
-    если не сработало
-```sh
-    allure serve target/surefire-reports/    
-```
+
 *добавляем папку с отчётом Allure к файлам. Ключ -f пригодится, если папка target указана в .gitignore*
 ```sh
 git add -f .\target\allure-results\.
