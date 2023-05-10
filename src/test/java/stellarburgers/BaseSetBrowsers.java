@@ -25,6 +25,7 @@ public class BaseSetBrowsers {
     String browserType;
     String binaryPath;
     private static final String setPropertyYandexBrowser = "src/main/resources/yandex/chromedriver.exe";
+    // Для поддержки тестов требуется следить за актуальной версией яндекс браузера
 
     private static final String systemPropertySettings = "webdriver.chrome.driver";
     private static final String chromeBrowser = "chrome";
