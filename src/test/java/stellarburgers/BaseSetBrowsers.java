@@ -71,7 +71,7 @@ public class BaseSetBrowsers {
         }
     }
 
-    @Parameterized.Parameters(name = "Browser: {0}")
+    @Parameterized.Parameters(name = "Browser: {0}") // для совместного отчета по браузерам
     public static Collection<Object[]> getBrowserData() {
         return Arrays.asList(new Object[][]{
                 {chromeBrowser, null},

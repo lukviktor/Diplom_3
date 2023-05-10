@@ -1,13 +1,13 @@
-# Diplom_3
-## Задание 3: веб-приложение
+# QA_java_tests_UI
+## UI тесты
 Протестировать [веб-приложение Stellar Burgers](https://stellarburgers.nomoreparties.site/)
 
 ## Описание
     Java 11
-    maven 4.0.0
+    maven
     Selenium
     JUnit 4
-    RestAssured 5
+    RestAssured
     Allure
     gson
 ### Для запуска автотестов и создания отчета в Allure ввести команду:
@@ -59,5 +59,8 @@ git add -f .\target\allure-results\.
 * «Булки»,
 * «Соусы»,
 * «Начинки».
+
+#### Можно добавить многопоточность.
+#### Тесты выполняются поочередно в Google Chrome и Яндекс.Браузере, в отчет Allure записываются без признака браузера.
 
 Разработал: [Лукашев Виктор Николаевич](https://github.com/lukviktor).
